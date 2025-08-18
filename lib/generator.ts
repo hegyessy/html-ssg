@@ -99,7 +99,10 @@ export class Generator {
 
   private async processPage(filePath: string): Promise<void> {
     const ext = extname(filePath);
-    const relativePath = filePath.replace(this.srcDir + "/pages/", "");
+    
+    // Fix path replacement for current directory
+    const pagesPrefix = this.srcDir === "." ? "pages/" : this.srcDir + "/pages/";
+    const relativePath = filePath.replace(pagesPrefix, "");
     
     // Enforce directory structure: pages/page-name/page-name.{md,html} -> page-name/index.html
     const baseName = basename(relativePath, ext);
