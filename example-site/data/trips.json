@@ -1,0 +1,19 @@
+{
+  "featured": [
+    {
+      "title": "My trip to Spain",
+      "slug": "my-trip-to-spain",
+      "href": "/blog/my-trip-to-spain"
+    },
+    {
+      "title": "My trip to Portugal", 
+      "slug": "my-trip-to-portugal",
+      "href": "/blog/my-trip-to-portugal"
+    },
+    {
+      "title": "My trip to Japan",
+      "slug": "my-trip-to-japan", 
+      "href": "/blog/my-trip-to-japan"
+    }
+  ]
+}

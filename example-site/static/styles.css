@@ -1,0 +1,80 @@
+/* Simple CSS for the example site */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+header h1 {
+  margin: 0 0 1rem 0;
+  color: #212529;
+}
+
+nav a {
+  text-decoration: none;
+  color: #007bff;
+  margin-right: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+h1, h2 {
+  color: #212529;
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #f8f9fa;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background: #212529;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+footer span {
+  font-weight: bold;
+}

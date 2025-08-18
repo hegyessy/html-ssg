@@ -1,0 +1,27 @@
+{
+  "name": "@your-org/html-ssg",
+  "version": "0.1.0",
+  "description": "A static site generator using HTML template standards",
+  "exports": "./mod.ts",
+  "tasks": {
+    "dev:example": "deno run --allow-read --allow-write --allow-net cli/main.ts --src example-site --dev",
+    "build:example": "deno run --allow-read --allow-write cli/main.ts --src example-site --build",
+    "test": "deno test --allow-read --allow-write",
+    "cli": "deno run --allow-read --allow-write --allow-net cli/main.ts"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.208.0/",
+    "@deno-dom": "https://deno.land/x/deno_dom@v0.1.43/deno-dom-wasm.ts"
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 80,
+    "indentWidth": 2
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"]
+    }
+  },
+  "exclude": ["dist/", "example-site/dist/"]
+}
