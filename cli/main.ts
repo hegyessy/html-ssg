@@ -7,7 +7,7 @@ async function main() {
     boolean: ["build", "dev", "help", "init"],
     string: ["src", "dist"],
     default: {
-      src: "./src",
+      src: ".",
       dist: "./dist"
     },
     alias: {
@@ -27,7 +27,7 @@ Usage:
   deno task dev     Start development server
   
 Options:
-  --src <dir>       Source directory (default: ./src)
+  --src <dir>       Source directory (default: .)
   --dist <dir>      Output directory (default: ./dist)
   --help, -h        Show this help
     `);
