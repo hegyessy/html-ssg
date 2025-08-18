@@ -2,30 +2,40 @@
 
 A static site generator library that uses HTML `<template>` tags for layouts and partials, embracing web standards.
 
-## Installation
+## Quick Start
 
-### As a Library
-
-```typescript
-import { Generator, buildSite } from "https://deno.land/x/html_ssg@latest/mod.ts";
-```
-
-### As a CLI Tool
+### Create a New Project
 
 ```bash
-# Install globally
-deno install --allow-read --allow-write --allow-net -n htmlssg https://deno.land/x/html_ssg@latest/cli/htmlssg.ts
-
-# Use directly
-deno run --allow-read --allow-write --allow-net https://deno.land/x/html_ssg@latest/cli/htmlssg.ts --build
+deno run -A -r https://raw.githubusercontent.com/hegyessy/html-ssg/main/init.ts
 ```
 
-## Quick Start
+This will:
+- Prompt for project name and Tailwind CSS preference
+- Create a complete project structure
+- Generate a ready-to-use HTML SSG site
+
+### Manual Installation
+
+#### As a Library
+
+```typescript
+import { Generator, buildSite } from "https://raw.githubusercontent.com/hegyessy/html-ssg/main/mod.ts";
+```
+
+#### As a CLI Tool
+
+```bash
+# Use directly
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/hegyessy/html-ssg/main/cli/main.ts --build
+```
+
+## Usage Examples
 
 ### Library Usage
 
 ```typescript
-import { buildSite } from "https://deno.land/x/html_ssg@latest/mod.ts";
+import { buildSite } from "https://raw.githubusercontent.com/hegyessy/html-ssg/main/mod.ts";
 
 // Simple build
 await buildSite({
@@ -35,7 +45,7 @@ await buildSite({
 ```
 
 ```typescript
-import { Generator } from "https://deno.land/x/html_ssg@latest/mod.ts";
+import { Generator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/main/mod.ts";
 
 // Advanced usage
 const generator = new Generator("./src", "./dist");
@@ -281,7 +291,7 @@ deno task test
 
 ```typescript
 // Custom build script
-import { Generator } from "https://deno.land/x/html_ssg@latest/mod.ts";
+import { Generator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/main/mod.ts";
 
 const generator = new Generator("./src", "./dist");
 
