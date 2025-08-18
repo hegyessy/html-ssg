@@ -1,5 +1,5 @@
-import { DataBinder } from "./data-binder.ts";
-import { TemplateParser } from "./template-parser.ts";
+import { DataBinder } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/data-binder.ts";
+import { TemplateParser } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/template-parser.ts";
 
 export class TemplateIterator {
   constructor(

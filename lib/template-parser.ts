@@ -1,4 +1,4 @@
-import { DOMParser } from "@deno-dom";
+import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.43/deno-dom-wasm.ts";
 
 export interface ParsedTemplate {
   id?: string;

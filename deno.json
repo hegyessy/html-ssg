@@ -13,7 +13,7 @@
     "cli": "deno run --allow-read --allow-write --allow-net cli/main.ts"
   },
   "imports": {
-    "std/": "https://deno.land/std@0.208.0/",
+    "@std/": "jsr:@std/",
     "@deno-dom": "https://deno.land/x/deno_dom@v0.1.43/deno-dom-wasm.ts",
     "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.0.0",
     "tailwindcss": "npm:tailwindcss@^4.0.0"

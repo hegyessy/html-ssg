@@ -7,8 +7,8 @@
  *   deno run -A -r https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/init.ts
  */
 
-import { ensureDir } from "https://deno.land/std@0.208.0/fs/mod.ts";
-import { join } from "https://deno.land/std@0.208.0/path/mod.ts";
+import { ensureDir } from "jsr:@std/fs/ensure-dir";
+import { join } from "jsr:@std/path/join";
 
 async function main() {
   console.log("🚀 Welcome to HTML SSG!");

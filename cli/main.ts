@@ -1,6 +1,6 @@
-import { parseArgs } from "std/cli/parse_args.ts";
-import { Generator } from "../lib/generator.ts";
-import { initProject } from "./init.ts";
+import { parseArgs } from "jsr:@std/cli/parse-args";
+import { Generator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/generator.ts";
+import { initProject } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/cli/init.ts";
 
 async function main() {
   const args = parseArgs(Deno.args, {

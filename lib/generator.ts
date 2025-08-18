@@ -1,9 +1,9 @@
-import { join, dirname, basename, extname } from "std/path/mod.ts";
-import { ensureDir, walk } from "std/fs/mod.ts";
-import { TemplateParser } from "./template-parser.ts";
-import { DataBinder } from "./data-binder.ts";
-import { TemplateIterator } from "./template-iterator.ts";
-import { MarkdownProcessor } from "./markdown-processor.ts";
+import { join, dirname, basename, extname } from "jsr:@std/path";
+import { ensureDir, walk } from "jsr:@std/fs";
+import { TemplateParser } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/template-parser.ts";
+import { DataBinder } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/data-binder.ts";
+import { TemplateIterator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/template-iterator.ts";
+import { MarkdownProcessor } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/markdown-processor.ts";
 
 export class Generator {
   private templateParser = new TemplateParser();

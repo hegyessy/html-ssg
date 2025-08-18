@@ -1,4 +1,4 @@
-import { extract } from "std/front_matter/yaml.ts";
+import { extract } from "jsr:@std/front-matter/yaml";
 
 export interface ProcessedMarkdown {
   content: string;
