@@ -7,7 +7,7 @@ A static site generator library that uses HTML `<template>` tags for layouts and
 ### Create a New Project
 
 ```bash
-deno run -A -r https://raw.githubusercontent.com/hegyessy/html-ssg/main/init.ts
+deno run -A -r https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/init.ts
 ```
 
 This will:
@@ -20,14 +20,14 @@ This will:
 #### As a Library
 
 ```typescript
-import { Generator, buildSite } from "https://raw.githubusercontent.com/hegyessy/html-ssg/main/mod.ts";
+import { Generator, buildSite } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/mod.ts";
 ```
 
 #### As a CLI Tool
 
 ```bash
 # Use directly
-deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/hegyessy/html-ssg/main/cli/main.ts --build
+deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/cli/main.ts --build
 ```
 
 ## Usage Examples
@@ -35,7 +35,7 @@ deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.co
 ### Library Usage
 
 ```typescript
-import { buildSite } from "https://raw.githubusercontent.com/hegyessy/html-ssg/main/mod.ts";
+import { buildSite } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/mod.ts";
 
 // Simple build
 await buildSite({
@@ -45,7 +45,7 @@ await buildSite({
 ```
 
 ```typescript
-import { Generator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/main/mod.ts";
+import { Generator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/mod.ts";
 
 // Advanced usage
 const generator = new Generator("./src", "./dist");
@@ -291,7 +291,7 @@ deno task test
 
 ```typescript
 // Custom build script
-import { Generator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/main/mod.ts";
+import { Generator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/mod.ts";
 
 const generator = new Generator("./src", "./dist");
 

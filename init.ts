@@ -4,7 +4,7 @@
  * HTML SSG Project Initializer
  * 
  * Usage:
- *   deno run -A -r https://raw.githubusercontent.com/hegyessy/html-ssg/main/init.ts
+ *   deno run -A -r https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/init.ts
  */
 
 import { ensureDir } from "https://deno.land/std@0.208.0/fs/mod.ts";
@@ -343,8 +343,8 @@ a:hover {
     version: "0.1.0",
     description: `HTML SSG project: ${projectName}`,
     tasks: {
-      dev: "deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/hegyessy/html-ssg/main/cli/main.ts --dev",
-      build: "deno run --allow-read --allow-write https://raw.githubusercontent.com/hegyessy/html-ssg/main/cli/main.ts --build",
+      dev: "deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/cli/main.ts --dev",
+      build: "deno run --allow-read --allow-write https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/cli/main.ts --build",
     },
     fmt: {
       useTabs: false,
