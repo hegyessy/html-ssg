@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* Custom styles can go here */
+@theme {
+  --color-brand: #3b82f6;
+}
+
+/* Component styles */
+.site-header {
+  @apply bg-white shadow-sm border-b;
+}
+
+.site-nav {
+  @apply flex space-x-4;
+}
+
+.site-nav a {
+  @apply px-3 py-2 text-gray-700 hover:text-brand transition-colors;
+}
+
+.main-content {
+  @apply max-w-4xl mx-auto px-4 py-8;
+}
+
+.trip-list {
+  @apply space-y-3 mt-6;
+}
+
+.trip-item {
+  @apply block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors;
+}

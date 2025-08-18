@@ -1,9 +1,10 @@
 import { parseArgs } from "std/cli/parse_args.ts";
 import { Generator } from "../lib/generator.ts";
+import { initProject } from "./init.ts";
 
 async function main() {
   const args = parseArgs(Deno.args, {
-    boolean: ["build", "dev", "help"],
+    boolean: ["build", "dev", "help", "init"],
     string: ["src", "dist"],
     default: {
       src: "./src",
@@ -21,6 +22,7 @@ async function main() {
 HTML SSG - Static Site Generator
 
 Usage:
+  deno task init    Initialize a new HTML SSG project
   deno task build   Build the site
   deno task dev     Start development server
   
@@ -29,6 +31,11 @@ Options:
   --dist <dir>      Output directory (default: ./dist)
   --help, -h        Show this help
     `);
+    return;
+  }
+
+  if (args.init) {
+    await initProject();
     return;
   }
 
@@ -42,7 +49,7 @@ Options:
     console.log("Starting development server...");
     await generator.serve();
   } else {
-    console.log("Use --build or --dev. Run with --help for usage.");
+    console.log("Use --init, --build, or --dev. Run with --help for usage.");
   }
 }
 

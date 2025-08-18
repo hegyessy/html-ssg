@@ -111,8 +111,14 @@ export class Generator {
       return;
     }
     
-    // All pages become directory indexes
-    const outputPath = join(this.distDir, dirName, "index.html");
+    // Special case: index/index.md -> dist/index.html (site root)
+    let outputPath: string;
+    if (dirName === "index") {
+      outputPath = join(this.distDir, "index.html");
+    } else {
+      // All other pages become directory indexes
+      outputPath = join(this.distDir, dirName, "index.html");
+    }
 
     // Ensure output directory exists
     await ensureDir(dirname(outputPath));
