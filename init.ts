@@ -342,6 +342,7 @@ a:hover {
     name: projectName,
     version: "0.1.0",
     description: `HTML SSG project: ${projectName}`,
+    exports: "./site.html",
     tasks: {
       dev: "deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/cli/main.ts --dev",
       build: "deno run --allow-read --allow-write https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/cli/main.ts --build",
@@ -359,7 +360,7 @@ a:hover {
   };
 
   if (useTailwind) {
-    denoConfig.tasks.css = "deno run --allow-read --allow-write --allow-run --allow-ffi --allow-env npm:@tailwindcss/cli@^4.0.0 -i ./site.css -o ./static/styles.css";
+    denoConfig.tasks.css = "deno run --allow-read --allow-write --allow-run --allow-ffi --allow-env --allow-scripts npm:@tailwindcss/cli@^4.0.0 -i ./site.css -o ./static/styles.css";
     denoConfig.tasks["build:css"] = "deno task css && deno task build";
     denoConfig.imports = {
       "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.0.0",

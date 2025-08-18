@@ -7,7 +7,7 @@
     "init": "deno run --allow-read --allow-write cli/main.ts --init",
     "dev:example": "deno run --allow-read --allow-write --allow-net cli/main.ts --src example-site --dev",
     "build:example": "deno run --allow-read --allow-write cli/main.ts --src example-site --build",
-    "css:build": "deno run --allow-read --allow-write --allow-run --allow-ffi --allow-env npm:@tailwindcss/cli@^4.0.0 --cwd . -i ./example-site/site.css -o ./example-site/static/styles.css",
+    "css:build": "deno run --allow-read --allow-write --allow-run --allow-ffi --allow-env --allow-scripts npm:@tailwindcss/cli@^4.0.0 --cwd . -i ./example-site/site.css -o ./example-site/static/styles.css",
     "build:with-css": "deno task css:build && deno task build:example",
     "test": "deno test --allow-read --allow-write",
     "cli": "deno run --allow-read --allow-write --allow-net cli/main.ts"
