@@ -1,7 +1,7 @@
 #!/usr/bin/env -S deno run --allow-read --allow-write --allow-net
 
-import { parseArgs } from "https://deno.land/std@0.208.0/cli/parse_args.ts";
-import { Generator } from "https://deno.land/x/html_ssg@latest/lib/generator.ts";
+import { parseArgs } from "jsr:@std/cli/parse-args";
+import { Generator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/generator.ts";
 
 async function main() {
   const args = parseArgs(Deno.args, {
@@ -9,14 +9,14 @@ async function main() {
     string: ["src", "dist"],
     default: {
       src: "./src",
-      dist: "./dist"
+      dist: "./dist",
     },
     alias: {
       h: "help",
-      s: "src", 
+      s: "src",
       d: "dist",
-      v: "version"
-    }
+      v: "version",
+    },
   });
 
   if (args.version) {
