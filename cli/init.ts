@@ -162,8 +162,8 @@ footer {
     version: "0.1.0",
     description: `HTML SSG project: ${projectName}`,
     tasks: {
-      dev: "deno run --allow-read --allow-write --allow-net https://deno.land/x/html_ssg@latest/cli/main.ts --dev",
-      build: "deno run --allow-read --allow-write https://deno.land/x/html_ssg@latest/cli/main.ts --build",
+      dev: "deno run --allow-read --allow-write --allow-net https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/cli/main.ts --dev",
+      build: "deno run --allow-read --allow-write https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/cli/main.ts --build",
     },
     fmt: {
       useTabs: false,
