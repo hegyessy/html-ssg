@@ -1,5 +1,9 @@
 # HTML SSG
 
+> ⚠️ **WARNING: Pre-Alpha Software** 
+> 
+> This project is under active development and in pre-alpha stage. It is **NOT** ready for production use. APIs may change without notice, features may be incomplete, and breaking changes are expected. Use at your own risk for experimental purposes only.
+
 A static site generator library that uses HTML `<template>` tags for layouts and partials, embracing web standards.
 
 ## Quick Start
