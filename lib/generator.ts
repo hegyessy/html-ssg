@@ -5,20 +5,53 @@ import { DataBinder } from "https://raw.githubusercontent.com/hegyessy/html-ssg/
 import { TemplateIterator } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/template-iterator.ts";
 import { MarkdownProcessor } from "https://raw.githubusercontent.com/hegyessy/html-ssg/refs/heads/master/lib/markdown-processor.ts";
 
+interface SiteConfig {
+  title?: string;
+  description?: string;
+  author?: string;
+  pagesDir?: string;
+  templatesDir?: string;
+  staticDir?: string;
+  [key: string]: any;
+}
+
 export class Generator {
   private templateParser = new TemplateParser();
   private dataBinder = new DataBinder();
   private templateIterator = new TemplateIterator(this.dataBinder, this.templateParser);
   private markdownProcessor = new MarkdownProcessor();
   private templateMap = new Map<string, string>();
+  private siteConfig: SiteConfig = {};
 
   constructor(
     private srcDir: string,
     private distDir: string
   ) {}
 
+  private async loadSiteConfig(): Promise<void> {
+    try {
+      const configPath = join(this.srcDir, "site.json");
+      const configText = await Deno.readTextFile(configPath);
+      this.siteConfig = JSON.parse(configText);
+    } catch {
+      // site.json is optional, use defaults
+      this.siteConfig = {};
+    }
+  }
+
+  private getConfiguredDir(configKey: keyof SiteConfig, defaultPath: string): string {
+    const configuredPath = this.siteConfig[configKey] as string;
+    if (configuredPath) {
+      return configuredPath.startsWith('./') ? configuredPath : './' + configuredPath;
+    }
+    return join(this.srcDir, defaultPath);
+  }
+
   async build(): Promise<void> {
     await ensureDir(this.distDir);
+    
+    // Load site configuration
+    await this.loadSiteConfig();
     
     // Load all templates into memory
     await this.loadTemplates();
@@ -62,7 +95,7 @@ export class Generator {
   }
 
   private async loadTemplates(): Promise<void> {
-    const templatesDir = join(this.srcDir, "templates");
+    const templatesDir = this.getConfiguredDir('templatesDir', 'templates');
     
     try {
       for await (const entry of walk(templatesDir, { 
@@ -83,7 +116,7 @@ export class Generator {
   }
 
   private async processPages(): Promise<void> {
-    const pagesDir = join(this.srcDir, "pages");
+    const pagesDir = this.getConfiguredDir('pagesDir', 'pages');
     
     try {
       for await (const entry of walk(pagesDir, { 
@@ -100,8 +133,9 @@ export class Generator {
   private async processPage(filePath: string): Promise<void> {
     const ext = extname(filePath);
     
-    // Fix path replacement for current directory
-    const pagesPrefix = this.srcDir === "." ? "pages/" : this.srcDir + "/pages/";
+    // Get pages directory and create prefix for path replacement
+    const pagesDir = this.getConfiguredDir('pagesDir', 'pages');
+    const pagesPrefix = pagesDir.endsWith('/') ? pagesDir : pagesDir + '/';
     const relativePath = filePath.replace(pagesPrefix, "");
     
     // Enforce directory structure: pages/page-name/page-name.{md,html} -> page-name/index.html
@@ -175,7 +209,7 @@ export class Generator {
 
 
   private async copyStaticFiles(): Promise<void> {
-    const staticDir = join(this.srcDir, "static");
+    const staticDir = this.getConfiguredDir('staticDir', 'static');
     
     try {
       for await (const entry of walk(staticDir, { includeDirs: false })) {

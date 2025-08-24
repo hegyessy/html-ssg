@@ -86,7 +86,10 @@ This is your new HTML SSG site!
   const siteData = {
     title: projectName,
     description: `A static site generated with HTML SSG`,
-    author: "Your Name"
+    author: "Your Name",
+    pagesDir: "./pages",
+    templatesDir: "./templates", 
+    staticDir: "./static"
   };
 
   await Deno.writeTextFile(join(projectDir, "site.json"), JSON.stringify(siteData, null, 2));
